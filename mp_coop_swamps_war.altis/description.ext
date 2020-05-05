@@ -1,6 +1,54 @@
+respawn = 3; //Base
+//respawnButton = 1;
+//respawnDelay = 5;
+//RespawnDialog = 1;
+
+joinUnassigned = 0;
+enableDebugConsole = 1;	      // 0 = disabled. 1 = admins, 2 = everybody. 0 is recommended in MP.
+disabledAI=1;				  // No AI in playable units
+aiKills = 0;				  // disable scorelist for AI players
+forceRotorLibSimulation = 0;  // Default value: 0 - options based; 1 - force enable; 2 - force disable
+
+author = "Swamp"; // Author
+onLoadName = "Swamp's War Altis"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
+onLoadMission = "Swamp's Kill Stuff on Altis"; // Description
+loadScreen = "swamp.jpg";
+
+class Header
+{
+	gameType =  Coop;	// Game type
+	minPlayers =  0;	// minimum number of players the mission supports
+	maxPlayers = 18;	// maximum number of players the mission supports
+};
+
 //------------------------AIS INJURY----------------------------
 class CfgFunctions {
 	#include "AIS\cfgFunctions.hpp"
 };
 #include "AIS\Effects\BarDlg.hpp"
 //--------------------------------------------------------------
+
+#include "ATM_airdrop\dialog.hpp"
+
+class CfgSounds
+{
+   sounds[] = {Vent,Vent2,Para};
+
+	class Vent {name="Vent";sound[]={ATM_airdrop\data\Vent.ogg,db-11,1.0};titles[] = {};};
+	class Vent2 {name="Vent2";sound[]={ATM_airdrop\data\Vent2.ogg,db-11,1.0};titles[] = {};};
+	class Para {name="Para";sound[]={ATM_airdrop\data\parachute.ogg,db-11,1.0};titles[] = {};};
+
+};
+
+// GF Cleanup Script
+
+corpseManagerMode = 1;
+corpseLimit = 75;
+corpseRemovalMinTime = 900;
+corpseRemovalMaxTime = 2400;
+
+wreckManagerMode = 1;
+wreckLimit = 45;
+wreckRemovalMinTime = 900;
+wreckRemovalMaxTime = 2400;
+
